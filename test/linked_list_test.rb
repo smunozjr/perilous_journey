@@ -1,4 +1,5 @@
 require './lib/linked_list'
+require './lib/node'
 require 'minitest/autorun'
 require 'minitest/pride'
 
@@ -13,14 +14,26 @@ class LinkedListTest <Minitest::Test
   def test_list_head_is_nil
     list = LinkedList.new
 
-    assert_equal nil, list.head
+    assert_nil nil, list.head
   end
 
   def test_append_new_name
     list = LinkedList.new
 
-    assert_equal "West", list.append("West")
+    assert_instance_of Node, list.append("West")
+    assert_nil nil, list.head.next_node
+    assert_equal 1, list.count
   end
+
+  def test_list_to_string
+    list = LinkedList.new
+    list.append("West")
+
+    assert_equal "The West family", list.to_string
+  end
+
+
+
 
 
 
