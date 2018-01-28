@@ -7,7 +7,7 @@ class NodeTest <Minitest::Test
 
   def test_instance_of_node_exist
     node = Node.new("Burke")
-
+    
     assert_instance_of Node, node
   end
 
@@ -20,8 +20,6 @@ class NodeTest <Minitest::Test
   def test_next_node_is_nil
     node = Node.new("Burke")
 
-    assert_equal nil, node.next_node
+    assert_nil nil, node.next_node
   end
-
-
 end

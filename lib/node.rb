@@ -1,10 +1,10 @@
 class Node
-  attr_acessor :surname
+  attr_accessor :next_node
 
-  attr_reader :next_node
+  attr_reader :surname
 
   def initialize(name)
-    @surname = surname
+    @surname = name
     @next_node = nil
   end
 
