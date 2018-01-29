@@ -25,12 +25,30 @@ class LinkedListTest <Minitest::Test
     assert_equal 1, list.count
   end
 
-  def test_list_to_string
+  def test_list_to_string_one_family
     list = LinkedList.new
     list.append("West")
 
     assert_equal "The West family", list.to_string
   end
+
+  def test_append_increase_count
+    list = LinkedList.new
+    list.append("Hardy")
+    list.append("Rhodes")
+
+    assert_equal 2, list.count
+  end
+
+  def test_list_to_string_multiple_families
+    list = LinkedList.new
+    list.append("Rhodes")
+    list.append("Hardy")
+
+    assert_equal "The Rhodes family, followed by the Hardy family", list.to_string
+  end
+
+
 
 
 
