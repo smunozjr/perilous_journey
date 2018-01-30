@@ -11,7 +11,7 @@ class LinkedList
   end
 
   def append(name)
-    @node = Node.new(name)
+    @head = Node.new(name)
     @head = @node if head.nil?
     @count += 1
     @names_list << name
@@ -29,6 +29,19 @@ class LinkedList
     end
     string_var
   end
+
+  def prepend(name)
+    current_node = @head
+    until current_node.next_node == nil
+     current_node = current_node.next_node
+     current_node.next_node = node
+     current_node.next_node.next_node = nil
+    end
+  end
+
+
+
+
 
 
 end

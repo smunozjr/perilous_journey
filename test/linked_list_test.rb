@@ -48,6 +48,30 @@ class LinkedListTest <Minitest::Test
     assert_equal "The Rhodes family, followed by the Hardy family", list.to_string
   end
 
+  def test_another_name
+    list = LinkedList.new
+    list.append("Brooks")
+
+    assert_equal "The Brooks family", list.to_string
+  end
+
+  # def test_prepend_name
+  #   skip
+  #   list = LinkedList.new
+  #
+  #
+  #   assert_instance_of Node, list.prepend("McKinney")
+  # end
+
+  def test_multiple_families
+    list = LinkedList.new
+    list.append("Brooks")
+    list.append("Henderson")
+    list.prepend("Mckinney")
+
+    assert_equal "The McKinney family, followed by the Brooks family, followed by the Henderson family", list.to_string
+  end
+
 
 
 

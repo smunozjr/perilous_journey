@@ -4,10 +4,9 @@ require 'minitest/pride'
 
 class NodeTest <Minitest::Test
 
-
   def test_instance_of_node_exist
     node = Node.new("Burke")
-    
+
     assert_instance_of Node, node
   end
 
