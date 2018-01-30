@@ -31,12 +31,14 @@ class LinkedList
   end
 
   def prepend(name)
-    current_node = @head
-    until current_node.next_node == nil
-     current_node = current_node.next_node
-     current_node.next_node = node
-     current_node.next_node.next_node = nil
-    end
+    duplicate_node = @head
+    @head = Node.new(name)
+    @head.next_node = duplicate_node
+    # until current_node.next_node == nil
+    #  current_node = current_node.next_node
+    #  current_node.next_node = node
+    #  current_node.next_node.next_node = nil
+    # end
   end
 
 
