@@ -1,32 +1,42 @@
 require './lib/node'
 
 class LinkedList
-  attr_reader :head,
-              :count
+  attr_reader :head
 
   def initialize
     @head = nil
-    @count = 0
-    @names_list = []
   end
 
   def append(name)
+    current_node = @head
     if @head.nil?
       @head = Node.new(name)
     else
-      new_node_position = traverse_list
-      new_node_position = Node.new(name)
+      until current_node.next_node == nil
+        current_node = current_node.next_node
+      end
+      current_node.next_node = Node.new(name)
     end
-    @count += 1
   end
 
-  def traverse_list(current_node = @head)
-    if current_node.next_node = nil
-       return current_node.next_node
-    else
+  def count
+    number_of_nodes = 0
+    current_node = @head
+    return 0 if @head.nil?
+    # if @head && @head.next_node
+    #   number_of_nodes + 2
+    # elsif @head && @head.next_node.nil?
+    #   number_of_nodes + 1
+    # else
+    #   number_of_nodes
+    # end
+    # require "pry"; binding.pry
+    number_of_nodes += 1
+    until current_node.next_node == nil
+      number_of_nodes += 1
       current_node = current_node.next_node
-       traverse_list(current_node)
-     end
+    end
+    number_of_nodes
   end
 
   def to_string
@@ -41,16 +51,11 @@ class LinkedList
     string_var
   end
 
-  def prepend(name)
-    duplicate_node = @head
-    @head = Node.new(name)
-    @head.next_node = duplicate_node
-    # until current_node.next_node == nil
-    #  current_node = current_node.next_node
-    #  current_node.next_node = node
-    #  current_node.next_node.next_node = nil
-    # end
-  end
+  # def prepend(name)
+  #   duplicate_node = @head
+  #   @head = Node.new(name)
+  #   @head.next_node = duplicate_node
+  # end
 
 
 
