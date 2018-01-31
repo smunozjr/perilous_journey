@@ -73,7 +73,6 @@ class LinkedListTest <Minitest::Test
   end
 
   def test_list_to_string_multiple_families
-    skip
     list = LinkedList.new
     list.append("Rhodes")
     list.append("Hardy")
@@ -99,11 +98,10 @@ class LinkedListTest <Minitest::Test
   end
 
   def test_multiple_families
-    skip
     list = LinkedList.new
     list.append("Brooks")
     list.append("Henderson")
-    list.prepend("Mckinney")
+    list.prepend("McKinney")
 
     assert_equal "The McKinney family, followed by the Brooks family, followed by the Henderson family", list.to_string
   end
@@ -119,6 +117,7 @@ class LinkedListTest <Minitest::Test
   end
 
   def test_it_find_one_name
+    skip
     list = LinkedList.new
     list.append("Henderson")
     list.append("Brooks")
@@ -127,12 +126,25 @@ class LinkedListTest <Minitest::Test
   end
 
   def test_it_find_three_names
+    skip
     list = LinkedList.new
     list.append("Lawson")
     list.append("Brooks")
     list.append("Henderson")
 
     assert_equal "The Lawson family, followed by the Brooks family, followed by the Henderson family", list.find(1, 3)
+  end
+
+  def test_does_node_include_a_name
+    skip
+    list = LinkedList.new
+    list.append("Lawson")
+    list.append("Brooks")
+    list.append("Henderson")
+
+    assert_equal true, list.includes?("Brooks")
+    assert_equal false, list.includes?("Chapman")
+
   end
 
 

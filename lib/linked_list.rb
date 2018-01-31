@@ -31,17 +31,20 @@ class LinkedList
     number_of_nodes
   end
 
-  # def to_string
-  #   if @names_list.length == 1
-  #     string_var = "The #{@head.surname} family"
-  #   else
-  #     string_var = "The #{@head.surname} family, "
-  #     @names_list[1..-1].each do |name|
-  #       string_var = string_var + "followed by the #{name} family"
-  #     end
-  #   end
-  #   string_var
-  # end
+  def to_string
+    current_node = @head
+    if count == 1
+      "The #{@head.surname} family"
+    else
+      string_var = "The #{@head.surname} family"
+      until current_node.next_node == nil
+       string_var += ", followed by the #{current_node.next_node.surname} family"
+       current_node = current_node.next_node
+      end
+      string_var
+    end
+
+  end
 
   def prepend(name)
     duplicate_node = @head
@@ -50,15 +53,23 @@ class LinkedList
   end
 
   def insert(position, name)
-   current_node = @head
-   (position - 1).times do
-   current_node = current_node.next_node
- end
-   new_node = Node.new(name)
-   new_next_node = current_node.next_node
-   current_node.next_node = new_node
-   new_node.next_node = new_next_node
-end
+    current_node = @head
+    (position - 1).times do
+    current_node = current_node.next_node
+    end
+    new_node = Node.new(name)
+    new_next_node = current_node.next_node
+    current_node.next_node = new_node
+    new_node.next_node = new_next_node
+  end
+
+  def includes?(name)
+    current_node = @head
+    until current_node.next_node == nil
+      current_node = current_node.next_node
+    end
+  end
+
 
 
 
