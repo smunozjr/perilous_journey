@@ -117,7 +117,6 @@ class LinkedListTest <Minitest::Test
   end
 
   def test_it_find_one_name
-    skip
     list = LinkedList.new
     list.append("Henderson")
     list.append("Brooks")
@@ -143,15 +142,25 @@ class LinkedListTest <Minitest::Test
     list.append("Henderson")
 
     assert_equal true, list.includes?("Brooks")
-    assert_equal false, list.includes?("Chapman")
-
+    # assert_equal false, list.includes?("Chapman")
   end
 
+  def test_does_node_include_a_name
+    skip
+    list = LinkedList.new
+    list.append("Lawson")
+    list.append("Brooks")
+    list.append("Henderson")
 
+    assert_equal "Henderson", list.pop
+  end
 
+  def test_it_removes_the_last_node
+    list.append("Henderson")
+    list.append("Lawson")
+    list.append("Brooks")
 
+    assert_equal, list.pop
 
-
-
-
+  end
 end

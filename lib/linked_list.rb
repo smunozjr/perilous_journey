@@ -63,12 +63,39 @@ class LinkedList
     new_node.next_node = new_next_node
   end
 
-  def includes?(name)
+  def find(position, count)
     current_node = @head
-    until current_node.next_node == nil
+    return nil if @head == nil
+    position.times do
       current_node = current_node.next_node
     end
+    family_count = "The #{current_node.surname}family"
+     count.times do
+       family_count << "#{current_node.next_node.surname} family"
+       current_node = current_node.next_node
+     end
+      family_count
   end
+
+  def includes?(name)
+    current_node = @head
+    until current_node.next_node == name
+      current_node = current_node.next_node
+    end
+    current_node.next_node.include?(name)
+  end
+
+  def pop
+    current_node = @head
+    until current_node.next_node.next_node == nil
+      current_node = current_node.next_node
+    end
+      name = current_node.next_node.name
+      current_node.next_node = nil
+  end
+
+
+
 
 
 
