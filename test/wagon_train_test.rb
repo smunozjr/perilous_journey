@@ -38,6 +38,43 @@ class WagonTrainTest <Minitest::Test
     assert_equal 2, wt.count
   end
 
+  def test_append_supplies
+    wt = WagonTrain.new
+    result = wt.append("Burke", {"pounds of food" => 200})
 
+    assert_instance_of Node, result
+  end
+
+  def test_prepend_supplies
+    wt = WagonTrain.new
+    result = wt.list.prepend("Hardy", {"spare wagon tongues" => 3})
+
+    assert_instance_of Node, result
+  end
+
+  def test_insert_pounds_of_food
+    skip
+    wt = WagonTrain.new
+    wt.append("Burke")
+    result = wt.list.insert(1, "West", {"pounds of food" => 300})
+
+    assert_instance_of Node, result
+  end
+
+  def test_wagon_count
+    skip
+    wt = WagonTrain.new
+    wt.append("Burke", {"pounds of food" => 200})
+    wt.list.append("Hardy", {"spare wagon tongues" => 3})
+    wt.list.append(1, "West", {"pounds of food" => 300})
+
+    assert_equal 3, wt.count
+  end
+
+  def test_wagon_supplies
+    skip
+    wt = WagonTrain.new
+    assert_equal ({"spare wagon tongues" => 3, "pounds of food" => 500}), wt.supplies
+  end
 
 end

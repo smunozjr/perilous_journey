@@ -7,11 +7,14 @@ class WagonTrain
     @list = LinkedList.new
   end
 
-  def append(name)
-    list.append(name)
+  def append(name, supplies = {})
+    new_family = list.append(name)
+    new_family.supplies = supplies
+    new_family
   end
 
   def count
     list.count
   end
+
 end

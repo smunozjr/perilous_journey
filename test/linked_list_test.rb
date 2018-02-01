@@ -81,7 +81,6 @@ class LinkedListTest <Minitest::Test
   end
 
   def test_another_name
-    skip
     list = LinkedList.new
     list.append("Brooks")
 
@@ -120,13 +119,14 @@ class LinkedListTest <Minitest::Test
     list = LinkedList.new
     list.append("Henderson")
     list.append("Brooks")
+    list.append("Luke")
 
-    assert_equal "The Brooks family", list.find(2, 1)
+    assert_equal "The Luke family", list.find(2, 1)
   end
 
   def test_it_find_three_names
-    skip
     list = LinkedList.new
+    list.append("Luke")
     list.append("Lawson")
     list.append("Brooks")
     list.append("Henderson")
@@ -135,32 +135,29 @@ class LinkedListTest <Minitest::Test
   end
 
   def test_does_node_include_a_name
-    skip
     list = LinkedList.new
     list.append("Lawson")
     list.append("Brooks")
     list.append("Henderson")
 
     assert_equal true, list.includes?("Brooks")
-    # assert_equal false, list.includes?("Chapman")
-  end
-
-  def test_does_node_include_a_name
-    skip
-    list = LinkedList.new
-    list.append("Lawson")
-    list.append("Brooks")
-    list.append("Henderson")
-
-    assert_equal "Henderson", list.pop
+    assert_equal false, list.includes?("Chapman")
   end
 
   def test_it_removes_the_last_node
+    list = LinkedList.new
     list.append("Henderson")
     list.append("Lawson")
     list.append("Brooks")
 
-    assert_equal, list.pop
+    assert_equal "Brooks", list.pop
+  end
 
+  def test_it_pop_removes_the_last_node
+    list = LinkedList.new
+    list.append("Lawson")
+    list.append("Henderson")
+
+    assert_equal "Henderson", list.pop
   end
 end
